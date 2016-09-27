@@ -1,0 +1,5 @@
+library('ggplot2')
+data=read.delim('star_sentimentscore.txt',sep='\t',header=F)
+ggplot(data,aes(x=V1,y=V2))+geom_point(shape=1)+geom_smooth(method=lm,se=FALSE,color = 'green')+ggtitle('Sentiment score vs Star rating')+xlab('Avg star rating')+ylab('Avg sentiment score')
+ggplot(data,aes(x=V1,y=V2))+stat_binhex()+ggtitle('Sentiment score vs Star rating (Hex binning)')+xlab('Avg Star rating')+ylab('Avg Sentiment score')
+cor(data,method='pearson')
